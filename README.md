@@ -16,6 +16,9 @@ Docker-compose:
 # development mode
 $ docker-compose up dev
 
+# testing mode
+$ docker-compose up unit-testing
+
 # production mode
 $ docker-compose up prod
 ```
