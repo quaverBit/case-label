@@ -1,5 +1,7 @@
 ## Installation
 
+Please rename the file `example.env` to `.env` and edit it with all environment variables needed inside.
+
 ```bash
 $ npm install
 ```
