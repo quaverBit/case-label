@@ -12,6 +12,17 @@ COPY . .
 
 RUN npm run build
 
+FROM node:15.12.0-alpine3.10 AS testing
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm ci
+COPY . .
+CMD [ "npm", "run", "test" ]
+
+
 FROM node:15.12.0-alpine3.10 as production
 
 ARG NODE_ENV=production
