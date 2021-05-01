@@ -1,3 +1,4 @@
+import { ConfigModule, ConfigService } from "@nestjs/config";
 import { MongooseModule, MongooseModuleOptions } from "@nestjs/mongoose";
 import MongoMemoryServer from "mongodb-memory-server-core";
 
@@ -12,6 +13,7 @@ export const rootMongooseTestModule = (options: MongooseModuleOptions = {}) => M
       ...options,
     }
   },
+  inject: []
 });
 
 export const closeInMongodConnection = async () => {

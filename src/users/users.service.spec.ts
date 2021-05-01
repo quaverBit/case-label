@@ -3,6 +3,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { User, UsersSchema } from './users.schema';
 import { UsersService } from './users.service';
 import { closeInMongodConnection, rootMongooseTestModule } from '../test-utils/mongoose.test.module'
+import { ConfigModule } from '@nestjs/config';
 
 
 describe('UsersService', () => {
@@ -11,11 +12,12 @@ describe('UsersService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
+        ConfigModule,
         rootMongooseTestModule(),
         MongooseModule.forFeature([{
           name: User.name,
           schema: UsersSchema,
-        }])
+        }]),
       ],
       providers: [UsersService],
     }).compile();
