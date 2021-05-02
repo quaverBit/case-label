@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { CasesModule } from './cases/cases.module';
 import { ConditionsModule } from './conditions/conditions.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ConditionsModule } from './conditions/conditions.module';
     UsersModule,
     CasesModule,
     ConditionsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

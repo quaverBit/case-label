@@ -5,7 +5,7 @@ import { Case, CaseDocument } from './cases.schema';
 
 @Injectable()
 export class CasesService {
-  constructor(@InjectModel(Case.name) private caseModel: Model<CaseDocument>) { }
+  constructor(@InjectModel(Case.name) private caseModel: Model<CaseDocument>) {}
 
   async getUnsolvedCases(): Promise<any> {
     return await this.caseModel.find({ isSolved: { $ne: true } });
