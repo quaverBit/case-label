@@ -4,8 +4,7 @@ import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-
-  constructor(private readonly usersService: UsersService) { }
+  constructor(private readonly usersService: UsersService) {}
 
   @Get()
   getUsers() {
@@ -14,6 +13,6 @@ export class UsersController {
 
   @Post()
   userLogin(@Body() body: UserLoginDto) {
-    return this.usersService.loginUser(body)
+    return this.usersService.loginUser(body);
   }
 }

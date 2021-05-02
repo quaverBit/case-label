@@ -1,7 +1,7 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type ConditionsDocument = Conditions & Document
+export type ConditionsDocument = Conditions & Document;
 
 @Schema()
 export class Conditions {
@@ -9,7 +9,7 @@ export class Conditions {
   icd10: string;
 
   @Prop()
-  icd10description: string
+  icd10description: string;
 }
 
 export const ConditionsSchema = SchemaFactory.createForClass(Conditions);

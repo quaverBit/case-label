@@ -1,8 +1,8 @@
-import { Prop, Schema, SchemaFactory, } from '@nestjs/mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import { User } from 'src/users/users.schema';
 
-export type CaseDocument = Case & Document
+export type CaseDocument = Case & Document;
 
 @Schema()
 export class Case {
@@ -10,14 +10,13 @@ export class Case {
   description: string;
 
   @Prop({ type: Types.ObjectId, ref: User.name })
-  reviewerId: string
+  reviewerId: string;
 
   @Prop({ type: [String] })
   conditions: string[];
 
   @Prop({ type: Boolean })
   isSolved: boolean;
-
 }
 
 export const CaseSchema = SchemaFactory.createForClass(Case);

@@ -2,9 +2,11 @@ import { getModelToken, MongooseModule } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { User, UsersSchema } from './users.schema';
 import { UsersService } from './users.service';
-import { closeInMongodConnection, rootMongooseTestModule } from '../test-utils/mongoose.test.module'
+import {
+  closeInMongodConnection,
+  rootMongooseTestModule,
+} from '../test-utils/mongoose.test.module';
 import { ConfigModule } from '@nestjs/config';
-
 
 describe('UsersService', () => {
   let service: UsersService;
@@ -14,10 +16,12 @@ describe('UsersService', () => {
       imports: [
         ConfigModule,
         rootMongooseTestModule(),
-        MongooseModule.forFeature([{
-          name: User.name,
-          schema: UsersSchema,
-        }]),
+        MongooseModule.forFeature([
+          {
+            name: User.name,
+            schema: UsersSchema,
+          },
+        ]),
       ],
       providers: [UsersService],
     }).compile();

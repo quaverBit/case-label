@@ -1,8 +1,8 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import * as bcrypt from 'bcryptjs';
 
-export type UserDocument = User & Document
+export type UserDocument = User & Document;
 
 @Schema()
 export class User {
@@ -28,9 +28,9 @@ UsersSchema.pre('save', function (next) {
       //@ts-ignore
       user.password = hash;
       next();
-    })
-  })
-})
+    });
+  });
+});
 
 UsersSchema.methods.comparePassword = function (toCheck) {
   return new Promise((resolve, reject) => {
@@ -38,7 +38,6 @@ UsersSchema.methods.comparePassword = function (toCheck) {
     bcrypt.compare(toCheck, this.password, function (checkErr, isMatch) {
       if (checkErr) return reject(checkErr);
       resolve(isMatch);
-    })
-
-  })
-}
+    });
+  });
+};

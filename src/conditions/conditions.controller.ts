@@ -3,8 +3,7 @@ import { ConditionsService } from './conditions.service';
 
 @Controller('conditions')
 export class ConditionsController {
-
-  constructor(private conditionsService: ConditionsService) { }
+  constructor(private conditionsService: ConditionsService) {}
 
   @Get()
   async indexConditions() {

@@ -6,9 +6,9 @@ import { Case, CaseSchema } from './cases.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: Case.name, schema: CaseSchema }])
+    MongooseModule.forFeature([{ name: Case.name, schema: CaseSchema }]),
   ],
   providers: [CasesService],
-  controllers: [CasesController]
+  controllers: [CasesController],
 })
-export class CasesModule { }
+export class CasesModule {}

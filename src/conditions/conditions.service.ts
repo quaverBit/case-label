@@ -5,8 +5,10 @@ import { Conditions, ConditionsDocument } from './conditions.schema';
 
 @Injectable()
 export class ConditionsService {
-
-  constructor(@InjectModel(Conditions.name) private conditionsModel: Model<ConditionsDocument>) { }
+  constructor(
+    @InjectModel(Conditions.name)
+    private conditionsModel: Model<ConditionsDocument>,
+  ) {}
 
   async indexConditions() {
     return await this.conditionsModel.find();
