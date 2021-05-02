@@ -19,7 +19,8 @@ export class UsersService {
   async loginUser(body: UserLoginDto) {
     const { password, username } = body;
     const user = await this.usersModel.findOne({ username });
-    if (await user.comparePassword(password)) return user.id;
+    if (!!user && await user.comparePassword(password))
+      return { id: user.id, username: user.username };
     else throw new UnauthorizedException();
   }
 }
