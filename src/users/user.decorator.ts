@@ -1,5 +1,10 @@
-import { createParamDecorator } from '@nestjs/common';
+import { createParamDecorator, ForbiddenException } from '@nestjs/common';
 
-export const User = createParamDecorator((data, req) => {
-	return req.get('Authorization');
+export const User = createParamDecorator((data, ctx) => {
+  const req = ctx.switchToHttp().getRequest();
+  const Authorization = req.get('Authorization');
+  if (!Authorization) {
+    throw new ForbiddenException();
+  }
+  return Authorization;
 });

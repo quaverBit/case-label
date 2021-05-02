@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
+import { CasesModule } from './cases/cases.module';
+import { ConditionsModule } from './conditions/conditions.module';
 
 @Module({
   imports: [
@@ -16,7 +18,9 @@ import { UsersModule } from './users/users.module';
       }),
       inject: [ConfigService]
     }),
-    UsersModule
+    UsersModule,
+    CasesModule,
+    ConditionsModule
   ],
   controllers: [AppController],
   providers: [AppService],
